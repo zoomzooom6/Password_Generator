@@ -30,4 +30,4 @@ Designed by Tony Huang.
 <img src="./assets/images/CriteriaComponentsAsked.jpg" alt="Criteria components asked" />
 
 ### Output of result
-<img src="./assets/images/OutofResults.jpg" alt="Output of password generation result" />
+<img src="./assets/images/OutputofResults.jpg" alt="Output of password generation result" />
