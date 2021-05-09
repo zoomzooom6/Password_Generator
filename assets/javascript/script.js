@@ -80,6 +80,8 @@ function charSetsUsed() {
 }
 
 function generatePassword() {
+  //Reset any saved passwords
+  passWd = "";
   //If statements based on which char sets to use
   //All sets chosen
   for (var i = 0; i < parseInt(passLen); i++) {
@@ -89,25 +91,21 @@ function generatePassword() {
         var arrayEntry = Math.floor(Math.random()*lwrCase.length);
         var charAdd = lwrCase[arrayEntry];
         passWd = charAdd.concat(passWd);
-        console.log("Run through lower array");
         break;
       case 1:
         var arrayEntry = Math.floor(Math.random()*uprCase.length);
         var charAdd = uprCase[arrayEntry];
         passWd = charAdd.concat(passWd);
-        console.log("Run through upper array");
         break;
       case 2:
         var arrayEntry = Math.floor(Math.random()*numSet.length);
         var charAdd = numSet[arrayEntry];
         passWd = charAdd.concat(passWd);
-        console.log("Run through number array");
         break;
       case 3:
         var arrayEntry = Math.floor(Math.random()*specChar.length);
         var charAdd = specChar[arrayEntry];
         passWd = charAdd.concat(passWd);
-        console.log("Run through specials array");
         break;
     }
   }
