@@ -24,7 +24,7 @@ Designed by Tony Huang.
 ## Final Results
 
 ### Main landing page
-<img src="./assets/images/MainLangPage.jpg" alt="Main landing page" />
+<img src="./assets/images/MainLandPage.jpg" alt="Main landing page" />
 
 ### Criteria components asked
 <img src="./assets/images/CriteriaComponentsAsked.jpg" alt="Criteria components asked" />
