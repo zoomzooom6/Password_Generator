@@ -33,7 +33,10 @@ generateBtn.addEventListener("click", function () {
 //Password length function
 function passLength() {
   passLen = window.prompt("Enter the length of password you require (as a whole number): ");
-  if (passLen < 8 || passLen === null || passLen > 128) {
+  if (isNaN(passLen) || passLen === null) {
+    window.alert("Please enter only a positive integer number");
+    passLength();
+  } else if (passLen < 8 || passLen > 128) {
     window.alert("Please enter a number of at least 8 and less than 128.");
     passLength();
   } else {
@@ -83,6 +86,7 @@ function generatePassword() {
   //Reset any saved passwords
   passWd = "";
   //If statements based on which char sets to use
+  
   //All sets chosen
   for (var i = 0; i < parseInt(passLen); i++) {
     var addedChar = Math.floor(Math.random() * 4);
