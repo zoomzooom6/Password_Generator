@@ -86,34 +86,83 @@ function generatePassword() {
   //Reset any saved passwords
   passWd = "";
   //If statements based on which char sets to use
-  
+
   //All sets chosen
-  for (var i = 0; i < parseInt(passLen); i++) {
-    var addedChar = Math.floor(Math.random() * 4);
-    switch (addedChar) {
-      case 0:
-        var arrayEntry = Math.floor(Math.random()*lwrCase.length);
-        var charAdd = lwrCase[arrayEntry];
-        passWd = charAdd.concat(passWd);
-        break;
-      case 1:
-        var arrayEntry = Math.floor(Math.random()*uprCase.length);
-        var charAdd = uprCase[arrayEntry];
-        passWd = charAdd.concat(passWd);
-        break;
-      case 2:
-        var arrayEntry = Math.floor(Math.random()*numSet.length);
-        var charAdd = numSet[arrayEntry];
-        passWd = charAdd.concat(passWd);
-        break;
-      case 3:
-        var arrayEntry = Math.floor(Math.random()*specChar.length);
-        var charAdd = specChar[arrayEntry];
-        passWd = charAdd.concat(passWd);
-        break;
+  if (useLwrCase && useUprCase && useNumSet && useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 4);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * lwrCase.length);
+          var charAdd = lwrCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * uprCase.length);
+          var charAdd = uprCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 2:
+          var arrayEntry = Math.floor(Math.random() * numSet.length);
+          var charAdd = numSet[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 3:
+          var arrayEntry = Math.floor(Math.random() * specChar.length);
+          var charAdd = specChar[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
     }
+    return passWd;
+  } else if (useLwrCase && useNumSet && useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 3);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * lwrCase.length);
+          var charAdd = lwrCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * numSet.length);
+          var charAdd = numSet[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 2:
+          var arrayEntry = Math.floor(Math.random() * specChar.length);
+          var charAdd = specChar[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (useNumSet && useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * numSet.length);
+          var charAdd = numSet[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * specChar.length);
+          var charAdd = specChar[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      var arrayEntry = Math.floor(Math.random() * specChar.length);
+      var charAdd = specChar[arrayEntry];
+      passWd = charAdd.concat(passWd);
+    }
+    return passWd;
   }
-  return passWd;
 }
 
 
