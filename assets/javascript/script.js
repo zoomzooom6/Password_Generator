@@ -115,7 +115,7 @@ function generatePassword() {
       }
     }
     return passWd;
-  } else if (useLwrCase && useNumSet && useSpecChar) {
+  } else if (useLwrCase && !useUprCase && useNumSet && useSpecChar) {
     for (var i = 0; i < parseInt(passLen); i++) {
       var addedChar = Math.floor(Math.random() * 3);
       switch (addedChar) {
@@ -137,7 +137,73 @@ function generatePassword() {
       }
     }
     return passWd;
-  } else if (useNumSet && useSpecChar) {
+  } else if (useLwrCase && useUprCase && !useNumSet && useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 3);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * lwrCase.length);
+          var charAdd = lwrCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * uprCase.length);
+          var charAdd = uprCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 2:
+          var arrayEntry = Math.floor(Math.random() * specChar.length);
+          var charAdd = specChar[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (useLwrCase && useUprCase && useNumSet && !useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 3);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * lwrCase.length);
+          var charAdd = lwrCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * numSet.length);
+          var charAdd = numSet[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 2:
+          var arrayEntry = Math.floor(Math.random() * uprCase.length);
+          var charAdd = uprCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (!useLwrCase && useUprCase && useNumSet && useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 3);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * uprCase.length);
+          var charAdd = uprCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * numSet.length);
+          var charAdd = numSet[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 2:
+          var arrayEntry = Math.floor(Math.random() * specChar.length);
+          var charAdd = specChar[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (!useLwrCase && !useUprCase && useNumSet && useSpecChar) {
     for (var i = 0; i < parseInt(passLen); i++) {
       var addedChar = Math.floor(Math.random() * 2);
       switch (addedChar) {
@@ -154,6 +220,115 @@ function generatePassword() {
       }
     }
     return passWd;
+  } else if (!useLwrCase && useUprCase && !useNumSet && useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * uprCase.length);
+          var charAdd = uprCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * specChar.length);
+          var charAdd = specChar[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (!useLwrCase && useUprCase && useNumSet && !useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * numSet.length);
+          var charAdd = numSet[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * uprCase.length);
+          var charAdd = uprCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (useLwrCase && !useUprCase && !useNumSet && useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * lwrCase.length);
+          var charAdd = lwrCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * specChar.length);
+          var charAdd = specChar[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (useLwrCase && !useUprCase && useNumSet && !useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * numSet.length);
+          var charAdd = numSet[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * lwrCase.length);
+          var charAdd = lwrCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (useLwrCase && useUprCase && !useNumSet && !useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      switch (addedChar) {
+        case 0:
+          var arrayEntry = Math.floor(Math.random() * lwrCase.length);
+          var charAdd = lwrCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+        case 1:
+          var arrayEntry = Math.floor(Math.random() * uprCase.length);
+          var charAdd = uprCase[arrayEntry];
+          passWd = charAdd.concat(passWd);
+          break;
+      }
+    }
+    return passWd;
+  } else if (useLwrCase && !useUprCase && !useNumSet && !useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      var arrayEntry = Math.floor(Math.random() * lwrCase.length);
+      var charAdd = lwrCase[arrayEntry];
+      passWd = charAdd.concat(passWd);
+    }
+    return passWd;
+  } else if (!useLwrCase && useUprCase && !useNumSet && !useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      var arrayEntry = Math.floor(Math.random() * uprCase.length);
+      var charAdd = uprCase[arrayEntry];
+      passWd = charAdd.concat(passWd);
+    }
+    return passWd;
+  } else if (!useLwrCase && !useUprCase && useNumSet && !useSpecChar) {
+    for (var i = 0; i < parseInt(passLen); i++) {
+      var addedChar = Math.floor(Math.random() * 2);
+      var arrayEntry = Math.floor(Math.random() * numSet.length);
+      var charAdd = numSet[arrayEntry];
+      passWd = charAdd.concat(passWd);
+    }
+    return passWd;
   } else {
     for (var i = 0; i < parseInt(passLen); i++) {
       var addedChar = Math.floor(Math.random() * 2);
@@ -164,17 +339,3 @@ function generatePassword() {
     return passWd;
   }
 }
-
-
-
-//No lower case
-
-//No upper case
-
-//No numbers
-
-//No special chars
-
-//No lower and upper case
-
-//No lower and number
