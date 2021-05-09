@@ -1,10 +1,7 @@
 # Password Generator Starter Code
-
-
-## Purpose
 The purpose of this project is to create a webpage landing that allows a user to generate a password based on certain criteria they need for their password.
 
-### Criteria includes:
+### Criteria:
 * Length of password 
     * Minimum 8 chars
     * Maximum 128 chars

@@ -8,6 +8,7 @@ var useLwrCase = false;
 var useUprCase = false;
 var useNumSet = false;
 var useSpecChar = false;
+var lenPass = 8;
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -22,4 +23,53 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", function() {
+  var passLen = window.prompt("Enter the length of password you require: ");
+  if (passLen < 8 || passLen === null || passLen > 128) {
+    window.alert("Please enter a length of at least 8 and less than 128.");
+    passLen = window.prompt("Enter the length of password you require: ");
+    if (passLen < 8 || passLen === null || passLen > 128) {
+      window.alert("Please enter a length of at least 8 and less than 128. \nThis is your final warning!");
+      passLen = window.prompt("Enter the length of password you require: ");
+      if (passLen < 8 || passLen === null || passLen > 128) {
+        window.alert("This program will now shutdown. Goodbye");
+        return;
+      }
+    }
+  }
+
+  var confirmLwr = window.confirm("Do you want to include lower case characters? \nChoose OK for yes, Cancel for no.");
+  if (confirmLwr) {
+    useLwrCase = true;
+  } else {
+    useLwrCase = false;
+  }
+  
+  var confirmUpr = window.confirm("Do you want to include upper case characters? \nChoose OK for yes, Cancel for no.");
+  if (confirmUpr) {
+    useUprCase = true;
+  } else {
+    useUprCase = false;
+  }
+
+  var confirmNum = window.confirm("Do you want to include numbers? \nChoose OK for yes, Cancel for no.");
+  if (confirmNum) {
+    useNumSet = true;
+  } else {
+    useNumSet = false;
+  }
+
+  var confirmSpec = window.confirm("Do you want to include special characters? \nChoose OK for yes, Cancel for no.");
+  if (confirmSpec) {
+    useSpecChar = true;
+  } else {
+    useSpecChar = false;
+  }
+
+  console.log(passLen);
+  console.log(useLwrCase);
+  console.log(useUprCase);
+  console.log(useNumSet);
+  console.log(useSpecChar);
+  //writePassword();
+});
