@@ -24,6 +24,8 @@ https://zoomzooom6.github.io/Password_Generator/
 ## Contribution
 Designed by Tony Huang.
 
+## Final Results
+
 ### Main landing page
 <img src="" alt="Main landing page" />
 
