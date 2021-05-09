@@ -9,7 +9,7 @@ var useUprCase = false;
 var useNumSet = false;
 var useSpecChar = false;
 var passWd = "";
-var passLen; 
+var passLen;
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -19,7 +19,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = "Your generated password is: \n" + password;
 
 }
 
@@ -27,20 +27,14 @@ function writePassword() {
 generateBtn.addEventListener("click", function () {
   passLength();
   charSetsUsed();
-
-  console.log(passLen);
-  console.log(useLwrCase);
-  console.log(useUprCase);
-  console.log(useNumSet);
-  console.log(useSpecChar);
-  //writePassword();
+  writePassword();
 });
 
 //Password length function
 function passLength() {
-  passLen = window.prompt("Enter the length of password you require: ");
+  passLen = window.prompt("Enter the length of password you require (as a whole number): ");
   if (passLen < 8 || passLen === null || passLen > 128) {
-    window.alert("Please enter a length of at least 8 and less than 128.");
+    window.alert("Please enter a number of at least 8 and less than 128.");
     passLength();
   } else {
     return;
@@ -84,3 +78,52 @@ function charSetsUsed() {
     return;
   }
 }
+
+function generatePassword() {
+  //If statements based on which char sets to use
+  //All sets chosen
+  for (var i = 0; i < parseInt(passLen); i++) {
+    var addedChar = Math.floor(Math.random() * 4);
+    switch (addedChar) {
+      case 0:
+        var arrayEntry = Math.floor(Math.random()*lwrCase.length);
+        var charAdd = lwrCase[arrayEntry];
+        passWd = charAdd.concat(passWd);
+        console.log("Run through lower array");
+        break;
+      case 1:
+        var arrayEntry = Math.floor(Math.random()*uprCase.length);
+        var charAdd = uprCase[arrayEntry];
+        passWd = charAdd.concat(passWd);
+        console.log("Run through upper array");
+        break;
+      case 2:
+        var arrayEntry = Math.floor(Math.random()*numSet.length);
+        var charAdd = numSet[arrayEntry];
+        passWd = charAdd.concat(passWd);
+        console.log("Run through number array");
+        break;
+      case 3:
+        var arrayEntry = Math.floor(Math.random()*specChar.length);
+        var charAdd = specChar[arrayEntry];
+        passWd = charAdd.concat(passWd);
+        console.log("Run through specials array");
+        break;
+    }
+  }
+  return passWd;
+}
+
+
+
+//No lower case
+
+//No upper case
+
+//No numbers
+
+//No special chars
+
+//No lower and upper case
+
+//No lower and number
